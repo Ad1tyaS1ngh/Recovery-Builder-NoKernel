@@ -14,10 +14,10 @@ on:
     types: [started]
 
 env:
-  MANIFEST: git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
-  DEVICE: mi8937
-  DT_LINK:  https://github.com/MinatiScape/mi8937
-  DT_PATH: device/xiaomi/mi8937
+  MANIFEST: git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-10.0
+  DEVICE: RMX2020
+  DT_LINK:  https://github.com/Mediatek-leaks/TWRP_rmx2020.git
+  DT_PATH: device/realme/RMX2020
   TARGET: recoveryimage
   TZ: Asia/Kolkata
 
@@ -47,7 +47,7 @@ jobs:
              cd work
              repo init -u $MANIFEST --depth=1 --groups=all,-notdefault,-device,-darwin,-x86,-mips
              repo sync -c -q --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j$(nproc --all)
-             git clone $DT_LINK --depth=1 --single-branch $DT_PATH && git clone https://github.com/Redmi-Go/android_kernel_xiaomi_tiare --depth=1 kernel/xiaomi/msm8937
+             git clone $DT_LINK --depth=1 --single-branch $DT_PATH
              
        - name: Build
          run: |
@@ -58,4 +58,4 @@ jobs:
          run: |
               cd work/out/target/product/$DEVICE
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet recovery.img && ./transfer wet *.zip && ./transfer wet *SHRP*.zip 
+              ./transfer wet recovery.img && ./transfer recovery.img && curl -L bashupload.com -T recovery.img && ./transfer gof recovery.img 
