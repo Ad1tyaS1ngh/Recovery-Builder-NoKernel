@@ -58,4 +58,4 @@ jobs:
          run: |
               cd work/out/target/product/$DEVICE
               curl -sL https://git.io/file-transfer | sh
-              ./transfer wet recovery.img && ./transfer recovery.img && curl -L bashupload.com -T recovery.img && ./transfer gof recovery.img 
+              ./transfer gof recovery.img && ./transfer recovery.img && curl -L bashupload.com -T recovery.img && ./transfer gof recovery.img 
