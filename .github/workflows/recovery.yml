@@ -14,10 +14,10 @@ on:
     types: [started]
 
 env:
-  MANIFEST: https://gitlab.com/OrangeFox/Manifest.git -b fox_9.0
-  DEVICE: PB6505M
-  DT_LINK:  https://github.com/SahilSonar/twrp_lenovo_PB6505M
-  DT_PATH: device/lenovo/PB6505M
+  MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp -b twrp-12.1
+  DEVICE: davinci
+  DT_LINK:  https://github.com/Ad1tyaS1ngh/twrp_device_xiaomi_davinci
+  DT_PATH: device/xiaomi/davinci
   TARGET: recoveryimage
   TZ: Asia/Kolkata
 
